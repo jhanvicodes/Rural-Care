@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #F1F5F9;
+    color: #0f172a;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+/* ── Route Dash Animations ── */
+@keyframes routeFlow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.route-dash-flow {
+  animation: routeFlow 1s linear infinite;
+}
+
+/* ── Pulse Glow Animations ── */
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+}
+
+@keyframes emergencyBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.15);
+  }
+}
+
+.pulse-emergency {
+  animation: emergencyBlink 1.2s ease-in-out infinite;
+}
+
+.pulse-ring-anim {
+  transform-origin: center;
+  animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ── Tactical Map Dots Grid ── */
+.tactical-grid {
+  background-color: #07101E;
+  background-image: radial-gradient(rgba(148, 163, 184, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Slide in Drawer Animation ── */
+@keyframes slideDrawerIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.drawer-slide-in {
+  animation: slideDrawerIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Soft Card Glow ── */
+.glow-card {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+}
+
+.glow-cyan {
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6));
+}
+
+.glow-amber {
+  filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+}
+
+.glow-rose {
+  filter: drop-shadow(0 0 8px rgba(251, 113, 133, 0.6));
+}
